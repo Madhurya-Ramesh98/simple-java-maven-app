@@ -50,8 +50,7 @@ jobs:
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Madhurya-Ramesh_simple-java-maven-app
         pwd
         
-    - name: Junit tests
-      run: mvn -B test --file pom.xml 
+   
         
         
     - name: Upload a Build Artifact
@@ -59,6 +58,12 @@ jobs:
       with:
           name: Artifact
           path: $GITHUB_WORKSPACE
+    - name: Junit tests
+      run: mvn -B test --file pom.xml 
+    - name: Log coverage percentage
+      run: |
+          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
     
     
     
