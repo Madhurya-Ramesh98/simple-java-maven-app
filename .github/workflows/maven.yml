@@ -49,8 +49,19 @@ jobs:
       run: |
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Madhurya-Ramesh_simple-java-maven-app
         pwd
+        
     - name: Junit tests
       run: mvn -B test --file pom.xml 
+        
+        
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+          name: Artifact
+          path: $GITHUB_WORKSPACE
+    
+    
+    
     
         
      
