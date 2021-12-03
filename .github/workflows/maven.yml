@@ -56,8 +56,8 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
-          name: Artifact
-          path: $GITHUB_WORKSPACE
+        name: Artifact
+        path: target/*.jar
     - name: Junit tests
       run: mvn -B test --file pom.xml 
       
