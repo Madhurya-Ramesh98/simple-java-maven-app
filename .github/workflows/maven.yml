@@ -74,7 +74,7 @@ jobs:
           name: jacoco-report
           path: target/site/jacoco/
     - name: Sonarcloud api call
-      run: curl -X GET "https://sonarcloud.io/web_api/api/projects/search"
+      run: curl -X GET "https://sonarcloud.io/api/projects/search"
     
     
     
