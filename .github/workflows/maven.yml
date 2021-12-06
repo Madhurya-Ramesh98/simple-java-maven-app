@@ -76,7 +76,7 @@ jobs:
           path: target/site/jacoco/
     - name: Sonarcloud api call
       run: >
-           curl --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app" \
+           curl --location --request GET "https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app" \
            --header "Authorization: Bearer 71e8c391a8329b3be43e137028431ff3075e0910"
 
     
