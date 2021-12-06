@@ -34,6 +34,7 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
+        
     - name: Cache Maven packages
       uses: actions/cache@v1
       with:
@@ -49,6 +50,7 @@ jobs:
       run: |
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Madhurya-Ramesh_simple-java-maven-app
         pwd
+        curl -X GET http://google.com 
         
    
         
