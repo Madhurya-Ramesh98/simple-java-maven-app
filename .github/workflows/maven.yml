@@ -78,11 +78,66 @@ jobs:
       run: |
           curl --location --request -s -X GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' --header 'Authorization: Bearer 71e8c391a8329b3be43e137028431ff3075e0910' | jq "." > myfile.json
           echo "-------"
+          while read jsonData ;
+          do
           metric=$(jq -r '.metric' <<<$jsonData)
           value=$(jq -r '.value' <<<$jsonData)
           echo "$metric"
           echo "$value"
-           
+          if [ "$metric" == "coverage" ] ;
+          then
+          if [ "${value%.*}" -lt ${{env.Threshold_coverage }} ] ;
+          then
+          echo "Expected ${metric%.*} - ${{env.Threshold_coverage}}"
+          echo "Actual ${metric%.*} - ${value%.*}"
+          echo "Sonar code coverage Gate: Failed"
+          exit 1
+          else
+          echo "Expected ${metric%.*} - ${{env.COVERAGE_THRESHOLD}}"
+          echo "Actual ${metric%.*} - ${value%.*}"
+          echo "Sonar code coverage Gate: Passed"
+          fi
+          fi
+          done <<< $(jq -c '.component.measures[]' $PWD/File.json)
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           
 
           
