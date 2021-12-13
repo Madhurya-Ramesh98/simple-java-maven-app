@@ -154,6 +154,7 @@ jobs:
            fi       
                   done<<< $(jq -c '.component.measures[]' $PWD/myfile.json)
                   cat $PWD/myfile.json
+                  cat myfile.json
 
 
 
