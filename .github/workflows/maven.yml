@@ -89,9 +89,9 @@ jobs:
             value=$(jq -r '.value'<<< $jsonData)
             echo "$metric"
             echo "$value"
-            #echo "${metric%.*}"
             
-            #json key "bugs" 
+            
+          
             if [ "$metric" == "bugs" ] ;           
               then
                 if ["${value%.*}" -ge ${{env.BUGS_THRESHOLD}} ];
@@ -102,7 +102,7 @@ jobs:
                 else  
                   echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
                   echo "Actual ${metric%.*} :${value%.*}"
-                  echo " Sonar code coverage gate: Passed"
+                  echo "Sonar code coverage gate: Passed"
                 fi  
 
                     
