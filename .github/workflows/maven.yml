@@ -102,6 +102,7 @@ jobs:
                   echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
                   echo "Actual ${metric%.*} :${value%.*}"
                   echo " Sonar code coverage gate: passed"
+                fi  
 
                     
   
