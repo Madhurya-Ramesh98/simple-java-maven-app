@@ -80,25 +80,51 @@ jobs:
           echo "-------"
           while read jsonData ;
           do
-          metric=$(jq -r '.metric' <<<$jsonData)
-          value=$(jq -r '.value' <<<$jsonData)
-          echo "$metric"
-          echo "$value"
-          if [ "$metric" == "coverage" ] ;
-          then
-          if [ "${value%.*}" -lt ${{env.Threshold_coverage }} ] ;
-          then
-          echo "Expected ${metric%.*} - ${{env.Threshold_coverage}}"
-          echo "Actual ${metric%.*} - ${value%.*}"
-          echo "Sonar code coverage Gate: Failed"
-          exit 1
-          else
-          echo "Expected ${metric%.*} - ${{env.COVERAGE_THRESHOLD}}"
-          echo "Actual ${metric%.*} - ${value%.*}"
-          echo "Sonar code coverage Gate: Passed"
-          fi
-          fi
-          done <<< $(jq -c '.component.measures[]' $PWD/myfile.json)
+            metric=$(jq -r '.metric' <<< $jsonData)
+            value=$(jq -r '.value'<<< $jsonData)
+            echo "$metric"
+            echo "$value"
+            #echo "${metric%.*}"
+            if [ "$metric" == "coverage" ] ;
+              then
+                if [ "${value%.*}" -lt ${{env.COVERAGE-THRESHOLD }} ] ;
+                  then
+                    echo "Expected ${metric%.*} - ${{env.COVERAGE_THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Failed"
+                    exit 1
+                  else
+                    echo "Expected ${metric%.*} - ${{env.COVERAGE_THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Passed"
+                  fi
+            elif [ "$metric" == "code_smells" ] ;
+              then
+                if [ "${value%.*}" -gt ${{env.CODE_SMELLS_THRESHOLD }} ] ;
+                  then
+                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS_THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Failed"
+                    exit 1
+                  else
+                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS_THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Passed"
+                  fi
+            elif [ "$metric" == "vulnerabilities" ] ;
+              then
+                if [ "${value%.*}" -gt ${{env.VULNERABILITIES_THRESHOLD }} ] ;
+                  then
+                    echo "Expected ${metric%.*} - ${{env.VULNERABILITIES_THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Failed"
+                    exit 1
+                  else
+                    echo "Expected ${metric%.*} - ${{env.VULNERABILITIES_THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Passed"
+                  fi
+
 
 
           
