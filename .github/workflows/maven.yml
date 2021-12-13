@@ -79,16 +79,17 @@ jobs:
           curl --location --request -s -X GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' --header 'Authorization: Bearer 71e8c391a8329b3be43e137028431ff3075e0910' | jq "." > myfile.json
           echo "-------"
           while read jsonData ;
-
           do
-
           metric=$(jq -r '.metric' <<<$jsonData)
-
           value=$(jq -r '.value' <<<$jsonData)
-
           echo "$metric"
-
           echo "$value"
+          
+
+          
+
+          
+
           
     
     
