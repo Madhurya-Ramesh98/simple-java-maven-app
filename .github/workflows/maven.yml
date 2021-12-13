@@ -112,7 +112,7 @@ jobs:
                   
              elif [ "$metric" == "bugs" ] ;           
               then
-                if ["${value%.*}" -ge ${{env.BUGS_THRESHOLD}} ];
+                if [ "${value%.*}" -ge ${{env.BUGS_THRESHOLD}} ];
                   then
                   echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
                   echo "Actual ${metric%.*} :${value%.*}"
