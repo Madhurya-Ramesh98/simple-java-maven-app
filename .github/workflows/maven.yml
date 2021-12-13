@@ -91,17 +91,17 @@ jobs:
             echo "$value"
             #echo "${metric%.*}"
             
-            if [ "$metric" == "bugs"]; #json key "bugs"           
+            if [ "$metric" == "bugs" ] ; #json key "bugs"           
               then
                 if ["${value%.*}" -ge ${{env.BUGS_THRESHOLD}} ];
                   then
                   echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
                   echo "Actual ${metric%.*} :${value%.*}"
-                  echo " Sonar code coverage gate: failed"
+                  echo "Sonar code coverage gate: Failed"
                 else  
                   echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
                   echo "Actual ${metric%.*} :${value%.*}"
-                  echo " Sonar code coverage gate: passed"
+                  echo " Sonar code coverage gate: Passed"
                 fi  
 
                     
