@@ -4,6 +4,8 @@ env:
   COVERAGE_THRESHOLD: 200
   CODE_SMELLS_THRESHOLD: 20
   VULNERABILITIES_THRESHOLD: 2
+  BUGS_THRESHOLD: 2
+
 name: Maven 
 
 on:
@@ -88,9 +90,12 @@ jobs:
             echo "$metric"
             echo "$value"
             #echo "${metric%.*}"
+            
+
+            
             if [ "$metric" == "coverage" ] ;
               then
-                if [ "${value%.*}" -lt ${{env.COVERAGE-THRESHOLD }} ] ;
+                if [ "${value%.*}" -lt ${{env.COVERAGE_THRESHOLD }} ] ;
                   then
                     echo "Expected ${metric%.*} - ${{env.COVERAGE_THRESHOLD}}"
                     echo "Actual ${metric%.*} - ${value%.*}"
