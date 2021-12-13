@@ -1,6 +1,9 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
+env:
+  COVERAGE_THRESHOLD: 20
+  CODE_SMELLS_THRESHOLD: 200
+  VULNERABILITIES_THRESHOLD: 6
 name: Maven 
 
 on:
@@ -124,6 +127,8 @@ jobs:
                     echo "Actual ${metric%.*} - ${value%.*}"
                     echo "Sonar code coverage Gate: Passed"
                   fi
+                  done <<< $(jq -c '.component.measures[]' $PWD/Response.json)
+                  cat $PWD/Response.json
 
 
 
