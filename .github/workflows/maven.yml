@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 env:
-  COVERAGE_THRESHOLD: 200
+  COVERAGE_THRESHOLD: 100
   CODE_SMELLS_THRESHOLD: 20
   VULNERABILITIES_THRESHOLD: 2
   BUGS_THRESHOLD: 2
@@ -92,6 +92,8 @@ jobs:
             #echo "${metric%.*}"
             
 
+                    
+  
             
             if [ "$metric" == "coverage" ] ;
               then
