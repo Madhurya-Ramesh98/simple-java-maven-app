@@ -1,8 +1,8 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 env:
-  COVERAGE_THRESHOLD: 100
-  CODE_SMELLS_THRESHOLD: 20
+  COVERAGE_THRESHOLD: 20
+  CODE_SMELLS_THRESHOLD: 3
   VULNERABILITIES_THRESHOLD: 2
   BUGS_THRESHOLD: 2
 
@@ -97,21 +97,21 @@ jobs:
             
             if [ "$metric" == "coverage" ] ;
               then
-                if [ "${value%.*}" -lt ${{env.COVERAGE_THRESHOLD }} ] ;
+                if [ "${value%.*}" -le ${{env.COVERAGE_THRESHOLD }} ] ;
                   then
-                    echo "Expected ${metric%.*} - ${{env.COVERAGE_THRESHOLD}}"
-                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Expected ${metric%.*} : ${{env.COVERAGE_THRESHOLD}}"
+                    echo "Actual ${metric%.*} : ${value%.*}"
                     echo "Sonar code coverage Gate: Failed"
                     exit 1
                   else
-                    echo "Expected ${metric%.*} - ${{env.COVERAGE_THRESHOLD}}"
-                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Expected ${metric%.*} : ${{env.COVERAGE_THRESHOLD}}"
+                    echo "Actual ${metric%.*} : ${value%.*}"
                     echo "Sonar code coverage Gate: Passed"
                   fi
                   
             elif [ "$metric" == "code_smells" ] ;
               then
-                if [ "${value%.*}" -gt ${{env.CODE_SMELLS_THRESHOLD }} ] ;
+                if [ "${value%.*}" -ge ${{env.CODE_SMELLS_THRESHOLD }} ] ;
                   then
                     echo "Expected ${metric%.*} - ${{env.CODE_SMELLS_THRESHOLD}}"
                     echo "Actual ${metric%.*} - ${value%.*}"
