@@ -84,6 +84,7 @@ jobs:
           value=$(jq -r '.value' <<<$jsonData)
           echo "$metric"
           echo "$value"
+          done
           
 
           
