@@ -91,7 +91,7 @@ jobs:
             echo "$value"
             #echo "${metric%.*}"
             
-            if [ "$metric" == "bugs"] #json key "bugs"           
+            if [ "$metric" == "bugs"]; #json key "bugs"           
               then
                 if ["${value%.*}" -ge ${{env.BUGS_THRESHOLD}} ];
                   then
