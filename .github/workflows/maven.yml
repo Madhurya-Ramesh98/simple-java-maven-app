@@ -92,23 +92,11 @@ jobs:
             
             
           
-            if [ "$metric" == "bugs" ] ;           
-              then
-                if ["${value%.*}" -ge ${{env.BUGS_THRESHOLD}} ];
-                  then
-                  echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
-                  echo "Actual ${metric%.*} :${value%.*}"
-                  echo "Sonar code coverage gate: Failed"
-                else  
-                  echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
-                  echo "Actual ${metric%.*} :${value%.*}"
-                  echo "Sonar code coverage gate: Passed"
-                fi  
-
+            
                     
   
             
-            elif [ "$metric" == "coverage" ] ;
+            if [ "$metric" == "coverage" ] ;
               then
                 if [ "${value%.*}" -le ${{env.COVERAGE_THRESHOLD }} ] ;
                   then
@@ -121,6 +109,20 @@ jobs:
                     echo "Actual ${metric%.*} : ${value%.*}"
                     echo "Sonar code coverage Gate: Passed"
                   fi
+                  
+             elif [ "$metric" == "bugs" ] ;           
+              then
+                if ["${value%.*}" -ge ${{env.BUGS_THRESHOLD}} ];
+                  then
+                  echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
+                  echo "Actual ${metric%.*} :${value%.*}"
+                  echo "Sonar code coverage gate: Failed"
+                else  
+                  echo "Expected ${metric%.*} : ${{env.BUGS_THRESHOLD}}"
+                  echo "Actual ${metric%.*} :${value%.*}"
+                  echo "Sonar code coverage gate: Passed"
+                fi  
+     
                   
             elif [ "$metric" == "code_smells" ] ;
               then
