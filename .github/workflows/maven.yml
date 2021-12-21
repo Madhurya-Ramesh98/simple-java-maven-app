@@ -70,10 +70,16 @@ jobs:
     - name: Junit tests
       run: mvn -B test --file pom.xml 
       
-# 3 - name: Log coverage percentage
- #     run: |
-  #        echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
-   #       echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+    - name: Build and push docker
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+       image: 1107455/my_repo55
+       registry: docker.io
+       tags: latest
+       username: ${{ secrets.DOCKER_USERNAME }}
+       password: ${{ secrets.DOCKER_PASSWORD }}
+     
+      
     - name: Upload JaCoCo coverage report
       uses: actions/upload-artifact@v2
       with:
