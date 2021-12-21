@@ -1,4 +1,4 @@
-FROM node:12.16.1-alpine3.9
+FROM alpine:3.10
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
