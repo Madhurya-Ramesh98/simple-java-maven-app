@@ -73,7 +73,7 @@ jobs:
     - name: Build and push docker
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-       image: 1107455/my_repo55
+       image: 1107455/my_repo55:latest2
        registry: docker.io
        tags: latest
        username: ${{ secrets.DOCKER_USERNAME }}
