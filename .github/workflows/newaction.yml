@@ -22,8 +22,9 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-           mkdir staging && cp target/*.war staging
+      run: |
+            mvn -B package --file pom.xml
+            mkdir staging && cp target/*.jar staging
            
     - name: cache for maven
       uses: actions/cache@v2
