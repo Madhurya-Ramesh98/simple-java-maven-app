@@ -27,7 +27,7 @@ jobs:
            mkdir staging && cp target/*.war staging
            
      
-    - name: Step 5- Storing artifacts
+    - name: Storing artifacts
       uses: actions/upload-artifact@v2
       with:
          name: github-actions-artifact 
