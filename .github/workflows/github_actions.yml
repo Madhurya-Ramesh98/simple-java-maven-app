@@ -4,7 +4,7 @@
 name: Java CI with Maven
 
 on:
-pull request:
+
   push:
     branches: 
           - master
@@ -24,3 +24,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+           mkdir staging && cp target/*.war staging
+           
+     
+    - name: Step 5- Storing artifacts
+      uses: actions/upload-artifact@v2
+      with:
+         name: github-actions-artifact 
+         path: staging
+      
+      
