@@ -52,7 +52,7 @@ jobs:
     - name: Build and analyze
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-         #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ env.SONAR_TOKEN }}
       run: |
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Madhurya-Ramesh_simple-java-maven-app
         #pwd
@@ -90,7 +90,7 @@ jobs:
       #env:
            #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-           curl --location --request -s -X GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' --header 'Authorization: Bearer ${{env.SONAR_TOKEN}}' | jq "." > myfile.json
+           curl --location --request -s -X GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' --header 'Authorization: Bearer ${{ env.SONAR_TOKEN }}' | jq "." > myfile.json
            echo "-------"
            while read jsonData ;
            do
