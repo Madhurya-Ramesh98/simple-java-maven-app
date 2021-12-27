@@ -21,10 +21,10 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
-    - name: Build with Maven
-      run: |
-            mvn -B package --file pom.xml
-            mkdir staging && cp target/*.jar staging
+    #- name: Build with Maven
+     # run: |
+        #    mvn -B package --file pom.xml
+         #   mkdir staging && cp target/*.jar staging
            
     - name: cache for maven
       uses: actions/cache@v2
@@ -40,8 +40,7 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
           
-    - name: Junit tests
-      run: mvn -B test --file pom.xml 
+    
       
     - name: Build and analyze
       env:
@@ -50,6 +49,8 @@ jobs:
       run: |
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Madhurya-Ramesh_simple-java-maven-app
       
+    - name: Junit tests
+      run: mvn -B test --file pom.xml 
           
    
        
