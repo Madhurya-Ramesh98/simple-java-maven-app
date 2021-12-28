@@ -47,7 +47,9 @@ jobs:
       run:
            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=vijeths98_simple-java-maven-app
       
-   
+    - name: Sonar API call
+      run: |
+          curl --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=vijeths98_simple-java-maven-app' --header 'Authorization: Bearer 945454c705d8e5cef88ff167441ed142693341af'
        
     #- name: Storing artifacts1
      # uses: actions/upload-artifact@v2
