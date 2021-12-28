@@ -93,7 +93,7 @@ jobs:
            curl --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=Madhurya-Ramesh_simple-java-maven-app' --header 'Authorization: Bearer 6f685bae785f000ff4c42b6ee3582aabeaa601e8'  
            
            echo "-------"
-           cat myfile.json
+           #cat myfile.json
            echo "-------"
            while read jsonData ;
            do
