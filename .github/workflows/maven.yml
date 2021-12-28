@@ -90,9 +90,9 @@ jobs:
       env:
            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-           curl --location --request -s -X GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' --header 'Authorization: Bearer ${{ secrets.SONAR_TOKEN }}' 
+           curl --location --request -s -X GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' --header 'Authorization: Bearer ${{ secrets.SONAR_TOKEN }}' | jq "." > myfile.json
            echo "-------"
-           #cat myfile.json
+           cat myfile.json
            echo "-------"
            while read jsonData ;
            do
