@@ -12,9 +12,11 @@
   <properties>
    <maven.compiler.source>1.6</maven.compiler.source>
    <maven.compiler.target>1.6</maven.compiler.target>
-   <sonar.organization>madhurya-ramesh</sonar.organization>
-   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
- </properties>
+  </properties>
+  <properties>
+  <sonar.organization>vijeths98</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
   
   <dependencies>
     <dependency>
