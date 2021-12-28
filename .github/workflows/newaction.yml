@@ -25,22 +25,20 @@ jobs:
      # run: |
         #    mvn -B package --file pom.xml
          #   mkdir staging && cp target/*.jar staging
-           
+         
+    - name: Cache SonarCloud packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar     
+
     - name: cache for maven
       uses: actions/cache@v2
       with: 
           path: -/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      
-    - name: Cache SonarCloud packages
-      uses: actions/cache@v1
-      with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-          
-    
       
     - name: Build and analyze
       env:
@@ -49,14 +47,11 @@ jobs:
       run:
            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=vijeths98_simple-java-maven-app
       
-    - name: Junit tests
-      run: mvn -B test --file pom.xml 
-          
    
        
-    - name: Storing artifacts1
-      uses: actions/upload-artifact@v2
-      with:
-          name: github-actions-artifact 
-          path: staging
+    #- name: Storing artifacts1
+     # uses: actions/upload-artifact@v2
+      #with:
+       #   name: github-actions-artifact 
+       #   path: staging
       
