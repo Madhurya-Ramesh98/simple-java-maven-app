@@ -35,8 +35,8 @@ jobs:
       - name: Install dependencies
         run: |
              pip install python-math
-             pip install python-matplotlib
-             pip install python-numpy
+             pip install matplotlib
+             pip install numpy
 
 #       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
       - run: python test.py
