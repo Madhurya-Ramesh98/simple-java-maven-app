@@ -3,7 +3,7 @@ import requests
 import json
 
 url = "https://chandratech.atlassian.net/rest/api/3/issue/Ap-17"
-token = 'w4OvBrzLVEICBAhhAMlM163C'
+token = 'EqijvLWIwETIVbQXEgBFEA26'
 headers = {
    "Accept": "application/json",
    "Content-Type": "application/json"
