@@ -37,6 +37,7 @@ jobs:
              pip install python-math
              pip install matplotlib
              pip install numpy
+             pip install termcolor
 
 #       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
       - run: python hello.py
