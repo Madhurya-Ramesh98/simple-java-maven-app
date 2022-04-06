@@ -40,7 +40,7 @@ jobs:
              pip install termcolor
 
 #       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
-      - run: python hello.py
+      - run: python colors.py
 
 #       - name: Upload artifact for deployment jobs
 #         uses: actions/upload-artifact@v3
