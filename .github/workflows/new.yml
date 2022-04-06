@@ -40,7 +40,7 @@ jobs:
              pip install termcolor
              pip install requests
          
-             pip install pprint
+         
 
 #       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
       - run: python new.py
