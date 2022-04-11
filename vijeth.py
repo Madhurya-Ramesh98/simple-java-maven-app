@@ -1,5 +1,5 @@
 import requests
-
+import os
 import json
 EMAIL = os.environ['EMAIL']
 JIRA_API = os.environ['JIRA_API']
