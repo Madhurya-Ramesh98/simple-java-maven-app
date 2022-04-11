@@ -1,15 +1,17 @@
 
 import requests
 import json
+EMAIL_CHANDRA = os.environ['EMAIL']
+API_CHANDRA = os.environ['JIRA_API']
 
 url = "https://chandratech.atlassian.net/rest/api/3/issue/Ap-17"
-token = 'EqijvLWIwETIVbQXEgBFEA26'
+# token = 'EqijvLWIwETIVbQXEgBFEA26'
 headers = {
    "Accept": "application/json",
    "Content-Type": "application/json"
 }
 
-r = requests.get(url, headers=headers, auth=('surisetty.chandrakiran@gmail.com', token))
+r = requests.get(url, headers=headers, auth=(EMAIL_CHANDRA, API_CHANDRA))
 
 #print(r.text)
 #print(type(r))
