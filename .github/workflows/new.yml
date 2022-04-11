@@ -37,7 +37,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-             python --version
+             sudo apt update
+             sudo apt install python3-pip
+             pip3 --version
              pip install requests
              pip install path.py
 #            pip install os-sys-linux
