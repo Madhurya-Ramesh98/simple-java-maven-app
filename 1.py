@@ -5,8 +5,8 @@ import pprint
 
 
 env_var = os.environ
-# print("User's Environment variable:")
-# pprint.pprint(dict(env_var), width = 1)
+print("User's Environment variable:")
+pprint.pprint(dict(env_var), width = 1)
 
 print("----------")
 
@@ -27,7 +27,7 @@ headers = {
    "Content-Type": "application/json"
 }
 
-r = requests.get(url, headers=headers, auth=(EMAIL_CHANDRA, API_CHANDRA))
+r = requests.get(url, headers=headers, auth=(env_var('EMAIL_CHANDRA'), env_var('API_CHANDRA'))
 
 #print(r.text)
 #print(type(r))
