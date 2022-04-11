@@ -41,7 +41,7 @@ jobs:
         run: pip install requests
              
          
-      - run: python vijeth2.py  
+      - run: python 1.py  
 
 #       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
       
