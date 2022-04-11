@@ -37,6 +37,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install requests
+             pip install path.py
              pip install os-sys-linux
              
         env: 
