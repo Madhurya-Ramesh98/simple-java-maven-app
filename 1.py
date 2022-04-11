@@ -1,11 +1,12 @@
 import os
 import requests
 import json
+import pprint
 
 
 env_var = os.environ
 print("User's Environment variable:")
-print(dict(env_var), width = 1)
+pprint.pprint(dict(env_var), width = 1)
 
 print("----------")
 
