@@ -48,6 +48,7 @@ jobs:
              pip install numpy
              pip install termcolor
              pip install requests
+             pip install os
          
       - run: python vijeth.py  
 
