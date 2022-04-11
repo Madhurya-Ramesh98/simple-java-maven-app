@@ -1,10 +1,15 @@
 import requests
 
 import json
+EMAIL = os.environ['EMAIL']
+JIRA_API = os.environ['JIRA_API']
+
+
+
 
 issueType=[]
 
-response = requests.get('https://vijeths.atlassian.net/rest/api/3/issue/createmeta?projectKeys=PP&expand=projects.issuetypes.fields',auth=('vijeth565@gmail.com','ZEVTvCjjVgfKCM6rXRnk20F1'))
+response = requests.get('https://vijeths.atlassian.net/rest/api/3/issue/createmeta?projectKeys=PP&expand=projects.issuetypes.fields',auth=(EMAIL,JIRA_API))
 print(response.json())
 print("---------------------")
 
