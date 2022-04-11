@@ -2,11 +2,11 @@ import os
 import requests
 import json
 
-# EMAIL_CHANDRA = os.environ['EMAIL_CHANDRA']
-# API_CHANDRA = os.environ['API_CHANDRA']
+EMAIL_CHANDRA = os.environ('EMAIL_CHANDRA')
+API_CHANDRA = os.environ('API_CHANDRA')
 
-EMAIL_CHANDRA = '$ {{ secrets.EMAIL_CHANDRA }}'
-API_CHANDRA = '$ {{ secrets.API_CHANDRA }}'
+# EMAIL_CHANDRA = '$ {{ secrets.EMAIL_CHANDRA }}'
+# API_CHANDRA = '$ {{ secrets.API_CHANDRA }}'
 
 url = "https://chandratech.atlassian.net/rest/api/3/issue/Ap-17"
 # token = 'EqijvLWIwETIVbQXEgBFEA26'
