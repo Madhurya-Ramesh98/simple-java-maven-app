@@ -1,12 +1,8 @@
 env: 
-    EMAIL: $ {{ secrets.email }}
-    JIRA_API: $ {{ secrets.JIRA_API }}
+    EMAIL: $ {{ secrets.EMAIL_CHANDRA }}
+    JIRA_API: $ {{ secrets.API_CHANDRA }}
 
 name: python 
-
-
-
-
 
 on:
   push:
