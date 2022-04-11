@@ -11,16 +11,16 @@ issueType=[]
 
 response = requests.get('https://vijeths.atlassian.net/rest/api/3/issue/createmeta?projectKeys=PP&expand=projects.issuetypes.fields',auth=(EMAIL,JIRA_API))
 print(response.json())
-print("---------------------")
+# print("---------------------")
 
 
 
-for data in response.json()['projects']:
+# for data in response.json()['projects']:
 
-    for d in (data['issuetypes']):
+#     for d in (data['issuetypes']):
 
-        issueType.append(d)
+#         issueType.append(d)
 
-print(issueType)
+# print(issueType)
 
 print("---------------------")
