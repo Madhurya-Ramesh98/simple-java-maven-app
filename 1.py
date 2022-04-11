@@ -2,6 +2,11 @@ import os
 import requests
 import json
 
+
+env_var = os.environ
+print(env_var['EMAIL_CHANDRA'])
+print("----------")
+
 EMAIL_CHANDRA = os.environ('EMAIL_CHANDRA')
 API_CHANDRA = os.environ('API_CHANDRA')
 
