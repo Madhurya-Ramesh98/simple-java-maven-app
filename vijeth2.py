@@ -19,4 +19,4 @@ r = requests.get(url, headers=headers, auth=(EMAIL, JIRA_API))
 #print(type(r))
 
 
-print(json.dumps(json.loads(r.text), sort_keys=True, indent=4, separators=(",", ": ")))
+print(r.json())
