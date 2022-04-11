@@ -14,11 +14,10 @@ print("----------")
 # print(env_var['EMAIL_CHANDRA'])
 
 
-EMAIL_CHANDRA = env_var('EMAIL_CHANDRA')
-API_CHANDRA = env_var('API_CHANDRA')
+EMAIL_CHANDRA = env_var['EMAIL_CHANDRA']
+API_CHANDRA = env_var['API_CHANDRA']
 
-# EMAIL_CHANDRA = '$ {{ secrets.EMAIL_CHANDRA }}'
-# API_CHANDRA = '$ {{ secrets.API_CHANDRA }}'
+
 
 url = "https://chandratech.atlassian.net/rest/api/3/issue/Ap-17"
 # token = 'EqijvLWIwETIVbQXEgBFEA26'
