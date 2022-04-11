@@ -4,8 +4,14 @@ import json
 
 
 env_var = os.environ
-print(env_var['EMAIL_CHANDRA'])
+print("User's Environment variable:")
+pprint.pprint(dict(env_var), width = 1)
+
 print("----------")
+
+
+print(env_var['EMAIL_CHANDRA'])
+
 
 EMAIL_CHANDRA = os.environ('EMAIL_CHANDRA')
 API_CHANDRA = os.environ('API_CHANDRA')
