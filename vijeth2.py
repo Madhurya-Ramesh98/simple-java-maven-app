@@ -6,7 +6,7 @@ EMAIL = os.environ['EMAIL']
 JIRA_API = os.environ['JIRA_API']
 
 
-url = 'https://vijeths.atlassian.net/rest/api/3/search?jql=project = "SM"'
+url = "https://vijeths.atlassian.net/rest/api/3/issue/SM-14"
 
 headers = {
    "Accept": "application/json",
