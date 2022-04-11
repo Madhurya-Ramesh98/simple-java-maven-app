@@ -39,7 +39,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install requests
-             pip install os
+             pip install os-sys-linux
              
          
       - run: python 1.py  
