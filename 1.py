@@ -5,17 +5,17 @@ import pprint
 
 
 env_var = os.environ
-print("User's Environment variable:")
-pprint.pprint(dict(env_var), width = 1)
+# print("User's Environment variable:")
+# pprint.pprint(dict(env_var), width = 1)
 
 print("----------")
 
 
-print(env_var['EMAIL_CHANDRA'])
+# print(env_var['EMAIL_CHANDRA'])
 
 
-EMAIL_CHANDRA = os.environ('EMAIL_CHANDRA')
-API_CHANDRA = os.environ('API_CHANDRA')
+EMAIL_CHANDRA = env_var('EMAIL_CHANDRA')
+API_CHANDRA = env_var('API_CHANDRA')
 
 # EMAIL_CHANDRA = '$ {{ secrets.EMAIL_CHANDRA }}'
 # API_CHANDRA = '$ {{ secrets.API_CHANDRA }}'
