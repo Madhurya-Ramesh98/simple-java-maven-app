@@ -16,4 +16,4 @@ for data in response.json()['projects']:
 
         issueType.append(d)
 
-print(d)
+print(issueType)
