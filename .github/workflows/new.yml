@@ -1,6 +1,4 @@
-env: 
-    EMAIL_CHANDRA: $ {{ secrets.EMAIL_CHANDRA }}
-    API_CHANDRA: $ {{ secrets.API_CHANDRA }}
+
 
 name: python 
 
@@ -41,7 +39,9 @@ jobs:
         run: pip install requests
              pip install os-sys-linux
              
-         
+        env: 
+            EMAIL_CHANDRA: $ {{ secrets.EMAIL_CHANDRA }}
+            API_CHANDRA: $ {{ secrets.API_CHANDRA }} 
       - run: python 1.py  
 
 #       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
