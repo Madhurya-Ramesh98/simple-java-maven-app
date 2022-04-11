@@ -1,6 +1,6 @@
 env: 
-    EMAIL: $ {{ secrets.EMAIL_CHANDRA }}
-    JIRA_API: $ {{ secrets.API_CHANDRA }}
+    EMAIL_CHANDRA: $ {{ secrets.EMAIL_CHANDRA }}
+    API_CHANDRA: $ {{ secrets.API_CHANDRA }}
 
 name: python 
 
