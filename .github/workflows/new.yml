@@ -39,6 +39,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install requests
+             pip install os
              
          
       - run: python 1.py  
