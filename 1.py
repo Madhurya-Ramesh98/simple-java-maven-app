@@ -27,7 +27,7 @@ headers = {
    "Content-Type": "application/json"
 }
 
-r = requests.get(url, headers=headers, auth=(env_var('EMAIL_CHANDRA'), env_var('API_CHANDRA'))
+r = requests.get(url, headers=headers, auth=(env_var('EMAIL_CHANDRA'), env_var('API_CHANDRA')))
 
 #print(r.text)
 #print(type(r))
