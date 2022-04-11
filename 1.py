@@ -1,8 +1,8 @@
 
 import requests
 import json
-EMAIL_CHANDRA = os.environ['EMAIL']
-API_CHANDRA = os.environ['JIRA_API']
+EMAIL_CHANDRA = os.environ['EMAIL_CHANDRA']
+API_CHANDRA = os.environ['API_CHANDRA']
 
 url = "https://chandratech.atlassian.net/rest/api/3/issue/Ap-17"
 # token = 'EqijvLWIwETIVbQXEgBFEA26'
