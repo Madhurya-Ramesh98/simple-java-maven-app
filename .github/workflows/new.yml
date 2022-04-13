@@ -47,7 +47,7 @@ jobs:
              pip install urllib3
 #  pip install path.py
         
-      - run: python 2.py  
+      - run: python 2.py 
 
 #       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
       
