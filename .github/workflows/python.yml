@@ -38,4 +38,4 @@ jobs:
          
          
       - name: Running the python code
-      - run: python sqrt.py
+        run: python sqrt.py
