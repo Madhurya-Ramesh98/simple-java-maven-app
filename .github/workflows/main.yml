@@ -2,7 +2,7 @@
 name: Manual CI build
 on: [workflow_dispatch]
   
-  # push:
+  # push:#
   #   branches: [master]
   # pull_request:
   #   branches: [master]
