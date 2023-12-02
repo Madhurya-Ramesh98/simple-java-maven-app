@@ -1,0 +1,12 @@
+name: from scratch
+on: [workflow_dispatch]
+
+
+jobs:
+    newjob:
+        runs-on: ubuntu-latest
+        steps: 
+          - uses: actions/checkout@v2
+          - name: print something
+            run:  echo "hello world"
+  
