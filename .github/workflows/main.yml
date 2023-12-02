@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
   steps:
-    - uses: actions/checkout@v3
+  
+    - uses: actions/checkout@v2
     - name: run a one line cmd
       run: echo Hello world!
     - name: run a multi line script
